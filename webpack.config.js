@@ -16,8 +16,22 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MinicSSeXTRACTplugin.loader, {loader: "css-loader", options: {modules: true}}],
+        use: [
+          MinicSSeXTRACTplugin.loader,
+          { loader: "css-loader", options: { modules: true } },
+        ],
       },
+      {
+        test: /\.svg$/,
+        loader: '@svgr/webpack',
+        options: {
+          svgoConfig: {
+            plugins: {
+              removeViewBox: false
+            }
+          }
+        }
+      }
     ],
   },
   plugins: [
